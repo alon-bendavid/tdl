@@ -66,7 +66,7 @@ class User
         if (password_verify($password, $hashed_password)) {
             $this->id = $id;
             $_SESSION['user'] =  ['id' => $this->id, 'login' => $this->login];
-            echo "you are now connected";
+            echo "connected";
             return true;
         } else {
             echo "something went worng";

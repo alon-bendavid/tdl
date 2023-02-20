@@ -2,11 +2,7 @@
 session_start();
 var_dump($_SESSION);
 require_once("classes/User.php");
-// require_once("php/connexion.php");
-// if ($userTest->isConnected()) {
-//     // header('Location: ../todolist.php');
-//     echo "user is connectd";
-// }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +25,7 @@ require_once("classes/User.php");
                 <a href="">To Do List</a>
                 <?php if (isset($_SESSION["user"])) { ?>
 
-                    <a href="">disconnect</a>
+                    <a id="disconnectBtn" href="php\disconnect.php">disconnect</a>
                 <?php
                 } else { ?>
                     <a href="">login</a>

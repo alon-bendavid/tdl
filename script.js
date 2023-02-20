@@ -57,8 +57,22 @@ fetchConnexion(connexionData);
     
 const data = await response.text();
 console.log(data);
-if(data == "you are now connected"){
+if(data == "connected"){
   window.location.reload();
 }
 
   }
+  ////////diconnect////////
+  const disconnectBtn = document.getElementById("disconnectBtn");
+
+  disconnectBtn.addEventListener("click" , ()=>{
+    window.location.reload();
+
+
+  })
+
+
+  
+
+    
+  
