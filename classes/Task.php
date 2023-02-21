@@ -18,6 +18,10 @@ class Task
     }
     public function createTask($value, $task, $usrId, $date)
     {
+        $this->date = $date;
+        $this->id_utilisateur = $usrId;
+        $this->task = $task;
+
         // var_dump("this is task . $task");
         // var_dump($usrId);
 
@@ -36,5 +40,8 @@ class Task
             echo "task didnt saved";
             return false;
         }
+    }
+    public function fetchTask()
+    {
     }
 }

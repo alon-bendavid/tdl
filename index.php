@@ -84,7 +84,12 @@ require_once("classes/Task.php");
     </div>
     <!-- //////////////////tasks\\\\\\\\\\\\\\\\\\\\\ -->
     <div class="livre-or">
+        <ul>
+            <li>task A <button>del</button> </li>
+            <li>task B</li>
 
+
+        </ul>
 
     </div>
 </body>
