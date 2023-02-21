@@ -1,7 +1,8 @@
 <?php
 session_start();
-var_dump($_SESSION);
+var_dump($_SESSION["user"]["login"]);
 require_once("classes/User.php");
+require_once("classes/Task.php");
 
 ?>
 <!DOCTYPE html>
@@ -28,7 +29,7 @@ require_once("classes/User.php");
                     <a id="disconnectBtn" href="php\disconnect.php">disconnect</a>
                 <?php
                 } else { ?>
-                    <a href="">login</a>
+                    <!-- <a href="">login</a> -->
 
                 <?php
                 } ?>
@@ -37,7 +38,7 @@ require_once("classes/User.php");
     </header>
     <!-- //////////////////inscrption\\\\\\\\\\\\\\\\\\\\\ -->
     <div class="inscrption">
-        <h1>sign up page</h1>
+        <h1>sign up</h1>
         <form id="signUp">
             <input type="text" placeholder="username" name="username"><br>
             <input type="password" placeholder="password" name="password" required><br>
@@ -55,9 +56,7 @@ require_once("classes/User.php");
 
             <input type="password" placeholder="password" name="loginPwd" required><br>
 
-            <button type="submit" name="loginSub">
-                <h2 class="sign">Sign in</h2>
-            </button>
+            <button type="submit" name="loginSub">sign in</button>
 
         </form>
         <h3 class="small_link"><a href="inscription.php">
@@ -65,32 +64,19 @@ require_once("classes/User.php");
             </a></h3>
         <!-- <a class="logoGit" href="https://github.com/alon-bendavid/livre-or"><img src="..\media\GitHub-Logo.png" alt=""></a> -->
     </div>
-    <!-- //////////////////profil\\\\\\\\\\\\\\\\\\\\\ -->
-    <div class="profil">
-        <h2>Edit your profile</h2>
 
-        <form action="profil.php" method="post">
-            <input type="text" placeholder='New Username' name="editUsr"><br>
-            <input type="text" placeholder="New Password" name="editPwd"><br>
-            <input type="text" placeholder="Retype password" name="rePwd"><br>
-            <button class="sign" type="submit" name="editSub">Edit</button>
-            <!-- <input type="submit" name="editSub">edit</input> -->
-        </form>
-    </div>
-    <!-- //////////////////commentaire\\\\\\\\\\\\\\\\\\\\\ -->
+    <!-- //////////////////start a task\\\\\\\\\\\\\\\\\\\\\ -->
     <div class="commentaire">
-        <h1>Send a comment!</h1>
-        <form action="" method="post">
-            <textarea name="comment" id="" cols="30" rows="10" required></textarea>
-            <!-- <input type="hidden" name="usrId" value="<?php echo $_SESSION['user'][1] ?>"><br> -->
-            <!-- <input type="hidden" name="date" value="<?php echo date('Y-m-d H:i:s') ?>"><br> -->
-
+        <h1>start a new task</h1>
+        <form action="php/handleTasks.php" method="post">
+            <textarea name="task" id="" cols="30" rows="10" required></textarea>
+            <input type="hidden" name="current_date" value="<?php echo date('Y-m-d H:i:s'); ?>" readonly="readonly">
             <button class="sign" type="submit" name="subComment">Send</button>
 
 
         </form>
     </div>
-    <!-- //////////////////livre-or\\\\\\\\\\\\\\\\\\\\\ -->
+    <!-- //////////////////tasks\\\\\\\\\\\\\\\\\\\\\ -->
     <div class="livre-or">
 
 
