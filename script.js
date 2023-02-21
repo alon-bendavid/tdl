@@ -73,7 +73,35 @@ if(data == "connected"){
   // })
 
 
+  ////////////////////////////////////////////////////////////////////////////////
+  ///////////////////////handling the tasks //////////////////////////////////
+  ///////////////////////////////////////////////////////////////////////////////
   
+const tasksForm = document.getElementById("handle_tasks_form");
 
-    
+tasksForm.addEventListener("submit" , (e)=>{
+
+e.preventDefault();
+const taskPayload = new FormData(tasksForm);
+taskPayload.forEach(item => {
+  // console.log(item);
+});
+fetchTask(taskPayload);
+
+})
+
+async function fetchTask(taskPayload){
+
+ const response =  await fetch('./php/handleTasks.php',{
+
+    method: 'POST',
+    body: taskPayload
+
+ });
+const data = await response.text();
+console.log(data);
+
+
+
+}
   
