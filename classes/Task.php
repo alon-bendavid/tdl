@@ -32,7 +32,7 @@ class Task
             echo "task hes created";
             return true;
         } else {
-            var_dump($this->conn->error_list);
+            // var_dump($this->conn->error_list);
             echo "task didnt saved";
             return false;
         }

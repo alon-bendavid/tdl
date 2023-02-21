@@ -99,7 +99,7 @@ async function fetchTask(taskPayload){
 
  });
 const data = await response.text();
-console.log(data);
+// console.log(data);
 
 
 
