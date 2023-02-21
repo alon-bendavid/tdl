@@ -1,6 +1,10 @@
 <?php
 session_start();
-var_dump($_SESSION["user"]["login"]);
+if (isset($_SESSION["user"])) {
+    var_dump($_SESSION["user"]["login"]);
+} else {
+    var_dump($_SESSION);
+}
 require_once("classes/User.php");
 require_once("classes/Task.php");
 
@@ -68,10 +72,12 @@ require_once("classes/Task.php");
     <!-- //////////////////start a task\\\\\\\\\\\\\\\\\\\\\ -->
     <div class="commentaire">
         <h1>start a new task</h1>
-        <form action="php/handleTasks.php" method="post">
-            <textarea name="task" id="" cols="30" rows="10" required></textarea>
-            <input type="hidden" name="current_date" value="<?php echo date('Y-m-d H:i:s'); ?>" readonly="readonly">
-            <button class="sign" type="submit" name="subComment">Send</button>
+        <!-- <form action="php/handleTasks.php" method="post"> -->
+
+        <form id="handle_tasks_form">
+            <textarea name="task" id="taskDescription" cols="30" rows="10" required></textarea>
+            <input id="taskCreatedTime" type="hidden" name="current_date" value="<?php echo date('Y-m-d H:i:s'); ?>" readonly="readonly">
+            <button id="tasksFormBtn" class="sign" type="submit" name="subComment">Send</button>
 
 
         </form>

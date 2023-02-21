@@ -4,6 +4,7 @@
   ///////////////////////////////////////////////////////////////////////////////
     const form = document.getElementById("signUp");
     // console.log(form);
+    
     form.addEventListener("submit", (e) => {
       e.preventDefault();
       const payLoad = new FormData(form);
@@ -63,13 +64,13 @@ if(data == "connected"){
 
   }
   ////////diconnect////////
-  const disconnectBtn = document.getElementById("disconnectBtn");
+  // const disconnectBtn = document.getElementById("disconnectBtn");
 
-  disconnectBtn.addEventListener("click" , ()=>{
-    window.location.reload();
+  // disconnectBtn.addEventListener("click" , ()=>{
+  //   window.location.reload();
 
 
-  })
+  // })
 
 
   
