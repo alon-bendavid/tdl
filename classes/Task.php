@@ -41,7 +41,29 @@ class Task
             return false;
         }
     }
-    public function fetchTask()
+    public function fetchTask($usrId)
     {
+        $stmt = $this->conn->prepare("SELECT * FROM tasks where id_utilisateur = ?");
+        $stmt->bind_param('i', $usrId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $data = array();
+        while ($row = $result->fetch_assoc()) {
+            $data[] = $row;
+        }
+
+        // var_dump($data);
+        echo json_encode($data);
+        // return $data;
     }
 }
+
+// if ($stmt->num_rows <= 0) {
+//     echo "You have no tasks";
+//     return false;
+// } else {
+//     $stmt->fetch();
+//     // var_dump($stmt);
+//     print_r($stmt);
+//     return $stmt;
+// }

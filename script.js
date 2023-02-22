@@ -1,4 +1,4 @@
-// document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////handling the inscription form////////////////////////////
   ///////////////////////////////////////////////////////////////////////////////
@@ -87,21 +87,33 @@ taskPayload.forEach(item => {
   // console.log(item);
 });
 fetchTask(taskPayload);
-
 })
 
 async function fetchTask(taskPayload){
-
- const response =  await fetch('./php/handleTasks.php',{
-
+  
+  const response =  await fetch('./php/handleTasks.php',{
+    
     method: 'POST',
     body: taskPayload
-
- });
-const data = await response.text();
-// console.log(data);
-
-
-
-}
+    
+  });
+  const data = await response.text();
+  // console.log(data);
   
+  
+  
+}
+
+async function fetch_All_Tasks() {
+  try {
+    const response = await fetch(`./php/todolist.php`);
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+  
+}
+
+ fetch_All_Tasks();
+})
