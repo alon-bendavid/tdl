@@ -1,8 +1,9 @@
-document.addEventListener('DOMContentLoaded', function() {
+// document.addEventListener('DOMContentLoaded', function() {
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////handling the inscription form////////////////////////////
   ///////////////////////////////////////////////////////////////////////////////
     const form = document.getElementById("signUp");
+    const signMsg = document.getElementById("signMsg");
     // console.log(form);
     
     form.addEventListener("submit", (e) => {
@@ -24,6 +25,13 @@ document.addEventListener('DOMContentLoaded', function() {
       });
 //since i use echo i need to handle the response with text method
       const data = await response.text();
+      if (data == "user created"){
+        signMsg.innerHTML = "User successfully created";
+      }
+      else{
+        signMsg.innerHTML = "User creation failed";
+
+      }
       // print out the values i sent to the backend-side
       console.log(data);
   }
@@ -34,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
   ///////////////////////////////////////////////////////////////////////////////
 
   const connexionForm = document.getElementById("connexion");
-
+const conMsg = document.getElementById("conMsg");
 
   connexionForm.addEventListener("submit" , (e)=>{
 e.preventDefault();
@@ -60,6 +68,11 @@ const data = await response.text();
 console.log(data);
 if(data == "connected"){
   window.location.reload();
+  // conMsg.innerHTML = "connected";
+
+}
+if(data == "something went worng"){
+  conMsg.innerHTML = "Login failed";
 }
 
   }
@@ -78,7 +91,6 @@ if(data == "connected"){
   ///////////////////////////////////////////////////////////////////////////////
   
 const tasksForm = document.getElementById("handle_tasks_form");
-
 tasksForm.addEventListener("submit" , (e)=>{
 
 e.preventDefault();
@@ -86,7 +98,9 @@ const taskPayload = new FormData(tasksForm);
 taskPayload.forEach(item => {
   // console.log(item);
 });
+fetch_All_Tasks();
 fetchTask(taskPayload);
+
 })
 
 async function fetchTask(taskPayload){
@@ -115,6 +129,4 @@ async function fetch_All_Tasks() {
   
 }
 
- fetch_All_Tasks();
-//  setInterval(fetch_All_Tasks, 1000);
-})
+// })

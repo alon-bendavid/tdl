@@ -9,6 +9,7 @@ require_once("header.php");
     <div class="inscrption">
         <h1>sign up</h1>
         <form id="signUp">
+            <h3 id="signMsg"></h3>
             <input type="text" placeholder="username" name="username"><br>
             <input type="password" placeholder="password" name="password" required><br>
             <input type="password" placeholder="retype password" name="repass" required><br>
@@ -20,6 +21,7 @@ require_once("header.php");
     <!-- //////////////////connexion\\\\\\\\\\\\\\\\\\\\\ -->
     <div class="connection_form">
         <h2>Sign in!</h2>
+        <h3 id="conMsg"></h3>
         <form id="connexion">
             <input type="text" placeholder="username" name="loginUsr" required><br>
 
@@ -40,7 +42,7 @@ require_once("header.php");
         <!-- <form action="php/handleTasks.php" method="post"> -->
 
         <form id="handle_tasks_form">
-            <?php echo date_default_timezone_set('Europe/Paris'); ?>
+            <?php date_default_timezone_set('Europe/Paris'); ?>
             <textarea name="task" id="taskDescription" cols="30" rows="10" required></textarea>
             <input id="taskCreatedTime" type="hidden" name="current_date" value="<?php echo date('Y-m-d H:i:s'); ?>" readonly="readonly">
             <button id="tasksFormBtn" class="sign" type="submit" name="subComment">Send</button>

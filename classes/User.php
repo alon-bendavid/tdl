@@ -44,7 +44,7 @@ class User
         $stmt = $this->conn->prepare("INSERT INTO utilisateurs (login, password) VALUES (?, ?)");
         $stmt->bind_param("ss", $login, $hashed_password);
         if ($stmt->execute()) {
-            echo "username created";
+            echo "user created";
 
             return true;
         } else {
