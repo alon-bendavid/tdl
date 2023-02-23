@@ -17,3 +17,23 @@ body{
     /* justify-content: center; */
     align-items: center;
 }
+ul {
+  list-style-type: none;
+  /* padding: 1rem; */
+}
+
+.block{
+  display: flex;
+  justify-content: space-around;
+  background-color: rgb(221, 221, 221);
+  padding: 1rem 4rem;
+  margin: 0.2rem;
+}
+.btnsDiv{
+background-color: black;
+justify-items: flex-end;
+/* margin: 0% 5%; */
+
+}
+button{
+}

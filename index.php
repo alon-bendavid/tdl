@@ -31,7 +31,7 @@ require_once("header.php");
 
         </form>
         <h3 class="small_link"><a href="inscription.php">
-                Not a member yet? <strong>Sign Up!</strong>
+                <!-- Not a member yet? <strong>Sign Up!</strong> -->
             </a></h3>
         <!-- <a class="logoGit" href="https://github.com/alon-bendavid/livre-or"><img src="..\media\GitHub-Logo.png" alt=""></a> -->
     </div>
@@ -43,7 +43,7 @@ require_once("header.php");
 
         <form id="handle_tasks_form">
             <?php date_default_timezone_set('Europe/Paris'); ?>
-            <textarea name="task" id="taskDescription" cols="30" rows="10" required></textarea>
+            <textarea name="task" id="taskDescription" cols="30" rows="3" required></textarea>
             <input id="taskCreatedTime" type="hidden" name="current_date" value="<?php echo date('Y-m-d H:i:s'); ?>" readonly="readonly">
             <button id="tasksFormBtn" class="sign" type="submit" name="subComment">Send</button>
 
@@ -53,9 +53,6 @@ require_once("header.php");
     <!-- //////////////////tasks\\\\\\\\\\\\\\\\\\\\\ -->
     <div class="livre-or">
         <ul id="task_list">
-            <!-- <li>task A <button>del</button> </li> -->
-            <!-- <li>task B</li> -->
-
 
         </ul>
 

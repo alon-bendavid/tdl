@@ -125,43 +125,48 @@ async function fetchTask(taskPayload){
       data.forEach(task => {
 
 
-      block = document.createElement("div");
+    let  block = document.createElement("div");
 
-      block.classList.add("block");
+      block.classList.add("block","div"+task.id);
+
       // console.log(block);
       block.innerHTML=task.task ;
-/////delete button
-    delTask = document.createElement("button");
-    delTask.innerHTML = "Delete Task";
-    delTask.setAttribute("value", task.id);
-   
-    /////done button
-    // doneTask = document.createElement("button");
-    // doneTask.innerHTML = "Mark As Done";
-    // doneTask.setAttribute("value", task.id);
-    // console.log(delTask);
-    // console.log(doneTask);
+      let btnsDiv = document.createElement("div");
+      btnsDiv.classList.add("btnsDiv");
+      
+      /////delete button
+      delTask = document.createElement("button");
+      delTask.innerHTML = "Delete Task";
+      delTask.setAttribute("value", task.id);
+      
+      /////done button
+      doneTask = document.createElement("button");
+      doneTask.innerHTML = "Task Done";
+      doneTask.setAttribute("value", task.id);
+      // console.log(delTask);
+      // console.log(doneTask);
+      // block.appendChild('<i class="fa fa-trash-o" aria-hidden="true"></i>');
+      block.appendChild(btnsDiv);
+    btnsDiv.appendChild(delTask);
+    btnsDiv.appendChild(doneTask);
     
     
-    block.appendChild(delTask);
-    // block.appendChild(doneTask);
-    
-    
-    item = document.createElement("li")
-    item.classList.add("task");
+    // item = document.createElement("li")
+    // item.classList.add("task");
     
     //insert the elements into the dom
     task_list.appendChild(block);
-    block.appendChild(item);
+    // block.appendChild(item);
     
     
   });
   ////////////////////////////////marking the task as done////////////
-  const doneBtns = document.querySelectorAll(".block");
-  doneBtns.forEach(div=> {
-    console.log(div);
-    div.addEventListener("click",()=>{
-    div.style. background = 'rgb(60, 179, 235)';
+  const doneBtns = document.querySelectorAll("button");
+  doneBtns.forEach(btn=> {
+    btn.addEventListener("click",()=>{
+      console.log(btn.value);
+      const thisDiv = document.querySelector("."+"div"+btn.value);
+      thisDiv.style. background = 'rgb(60, 179, 235)';
     }) 
   });        
   return data;
