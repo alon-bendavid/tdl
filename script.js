@@ -116,4 +116,5 @@ async function fetch_All_Tasks() {
 }
 
  fetch_All_Tasks();
+//  setInterval(fetch_All_Tasks, 1000);
 })
