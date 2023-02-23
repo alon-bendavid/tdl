@@ -123,23 +123,56 @@ async function fetchTask(taskPayload){
 // })
 
   
-async function fetch_All_Tasks() {
-  try {
-    const response = await fetch(`./php/todolist.php`);
-    const data = await response.json();
-    console.log(data);
+  async function fetch_All_Tasks() {
+    try {
+      const response = await fetch(`./php/todolist.php`);
+      const data = await response.json();
+      console.log(data);
+      task_list.innerHTML = "";
     data.forEach(task => {
-       item = document.createElement("li")
-      item.classList.add("task");
-      item.innerHTML=task.task +" "+ task.date;
-      task_list.appendChild(item);
-      // console.log(task);
-      // console.log(task.date);
       
+            
+      item = document.createElement("li")
+    item.classList.add("task");
+    item.innerHTML=task.task +" "+ task.date;
+    task_list.appendChild(item);
+    
+    
     });
-  } catch (error) {
-    console.error(error);
+      return data;
+    } catch (error) {
+      console.error(error);
+    }
+    
   }
-  
-}
 fetch_All_Tasks();
+
+// console.log(fetch_All_Tasks());
+
+// const data =  fetch_All_Tasks();
+// const tasksFormBtn = document.getElementById("tasksFormBtn");
+// const tasks = Array()
+// tasksFormBtn.addEventListener("click" , (data)=>{
+
+//   data.forEach(item => {
+//     console.log(item);
+//   });
+
+// })
+
+// showTasks(data);
+// console.log(data);
+
+// async function showTasks(data){
+
+//   data.forEach(task => {
+     
+          
+//     item = document.createElement("li")
+//    item.classList.add("task");
+//    item.innerHTML=task.task +" "+ task.date;
+//    task_list.appendChild(item);
+  
+  
+//   });
+// }

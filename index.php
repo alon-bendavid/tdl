@@ -53,8 +53,8 @@ require_once("header.php");
     <!-- //////////////////tasks\\\\\\\\\\\\\\\\\\\\\ -->
     <div class="livre-or">
         <ul id="task_list">
-            <li>task A <button>del</button> </li>
-            <li>task B</li>
+            <!-- <li>task A <button>del</button> </li> -->
+            <!-- <li>task B</li> -->
 
 
         </ul>
