@@ -84,7 +84,7 @@ if(data == "something went worng"){
   
   const tasksForm = document.getElementById("handle_tasks_form");
   const task_list = document.getElementById("task_list");
-
+const task_done = document.getElementById("task_done");
 
 
   tasksForm.addEventListener("submit" , (e)=>{
@@ -137,7 +137,7 @@ async function fetchTask(taskPayload){
       /////delete button
       delTask = document.createElement("button");
       delTask.innerHTML = "Delete Task";
-      delTask.setAttribute("value", task.id);
+      delTask.setAttribute("value", "task"+task.id);
       
       /////done button
       doneTask = document.createElement("button");
@@ -160,15 +160,19 @@ async function fetchTask(taskPayload){
     
     
   });
-  ////////////////////////////////marking the task as done////////////
   const doneBtns = document.querySelectorAll("button");
   doneBtns.forEach(btn=> {
     btn.addEventListener("click",()=>{
       console.log(btn.value);
       const thisDiv = document.querySelector("."+"div"+btn.value);
+      console.log(thisDiv);
+      task_list.removeChild(thisDiv);
+      task_done.appendChild(thisDiv);
       thisDiv.style. background = 'rgb(60, 179, 235)';
+
     }) 
   });        
+  ////////////////////////////////marking the task as done////////////
   return data;
 } catch (error) {
   console.error(error);

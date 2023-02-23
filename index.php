@@ -51,8 +51,11 @@ require_once("header.php");
         </form>
     </div>
     <!-- //////////////////tasks\\\\\\\\\\\\\\\\\\\\\ -->
-    <div class="livre-or">
+    <div>
         <ul id="task_list">
+
+        </ul>
+        <ul id="task_done">
 
         </ul>
 

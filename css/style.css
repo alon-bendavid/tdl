@@ -28,6 +28,7 @@ ul {
   background-color: rgb(221, 221, 221);
   padding: 1rem 4rem;
   margin: 0.2rem;
+  /* background-color: brown; */
 }
 .btnsDiv{
 background-color: black;
@@ -36,4 +37,7 @@ justify-items: flex-end;
 
 }
 button{
+}
+#task_list{
+  /* background-color: brown; */
 }
