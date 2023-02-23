@@ -129,23 +129,60 @@ async function fetchTask(taskPayload){
       const data = await response.json();
       console.log(data);
       task_list.innerHTML = "";
-    data.forEach(task => {
-      
-            
-      item = document.createElement("li")
+    //take each json object fetched from the DB and present it in the DOM
+      data.forEach(task => {
+
+
+      block = document.createElement("div");
+
+      block.classList.add("block");
+      // console.log(block);
+      block.innerHTML=task.task ;
+/////delete button
+    delTask = document.createElement("button");
+    delTask.innerHTML = "Delete Task";
+    delTask.setAttribute("value", task.id);
+   
+    /////done button
+    doneTask = document.createElement("button");
+    doneTask.innerHTML = "Mark As Done";
+    doneTask.setAttribute("value", task.id);
+    // console.log(delTask);
+    // console.log(doneTask);
+    
+    
+    block.appendChild(delTask);
+    block.appendChild(doneTask);
+    
+    
+    item = document.createElement("li")
     item.classList.add("task");
-    item.innerHTML=task.task +" "+ task.date;
-    task_list.appendChild(item);
+    
+    //insert the elements into the dom
+    task_list.appendChild(block);
+    block.appendChild(item);
     
     
-    });
-      return data;
-    } catch (error) {
-      console.error(error);
-    }
-    
+  });
+  const doneBtns = document.querySelectorAll(".block");
+  doneBtns.forEach(div=> {
+    console.log(div);
+    div.addEventListener("click",()=>{
+div.style.display = 'none';
+    }) 
+  });        
+  return data;
+} catch (error) {
+  console.error(error);
+}
+
   }
 fetch_All_Tasks();
+
+// function TaskDone(task){
+// const.
+
+// }
 
 // console.log(fetch_All_Tasks());
 
