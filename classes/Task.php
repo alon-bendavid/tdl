@@ -56,6 +56,12 @@ class Task
         echo json_encode($data);
         // return $data;
     }
+    public function delete()
+    {
+        $stmt = $this->conn->prepare("DELETE FROM tasks WHERE login = ?");
+        $stmt->bind_param("s", $this->task);
+        $stmt->execute();
+    }
 }
 
 // if ($stmt->num_rows <= 0) {

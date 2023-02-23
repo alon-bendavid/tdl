@@ -138,11 +138,14 @@ async function fetchTask(taskPayload){
       delTask = document.createElement("button");
       delTask.innerHTML = "Delete Task";
       delTask.setAttribute("value", "task"+task.id);
+      delTask.classList.add("delBtn");
       
       /////done button
       doneTask = document.createElement("button");
       doneTask.innerHTML = "Task Done";
       doneTask.setAttribute("value", task.id);
+      doneTask.classList.add("doneBtn");
+
       // console.log(delTask);
       // console.log(doneTask);
       // block.appendChild('<i class="fa fa-trash-o" aria-hidden="true"></i>');
@@ -161,6 +164,7 @@ async function fetchTask(taskPayload){
     
   });
   const doneBtns = document.querySelectorAll("button");
+ //this code allow click the done btns and delete the current div from the list and move it to the done list
   doneBtns.forEach(btn=> {
     btn.addEventListener("click",()=>{
       console.log(btn.value);

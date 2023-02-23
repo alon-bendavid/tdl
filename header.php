@@ -28,17 +28,19 @@ require_once("classes/Task.php");
 <header>
     <nav>
         <ul>
-            <a href="index.php">Home</a>
             <!-- <a href="todolist.php">To Do List</a> -->
             <?php if (isset($_SESSION["user"])) { ?>
 
                 <a id="disconnectBtn" href="php\disconnect.php">disconnect</a>
+                <?php echo "<h3 class='user'>" . $_SESSION['user']['login'] . "</h3>"; ?>
+
             <?php
             } else { ?>
                 <!-- <a href="">login</a> -->
 
             <?php
             } ?>
+
         </ul>
     </nav>
 </header>
