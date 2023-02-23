@@ -84,22 +84,27 @@ if(data == "something went worng"){
 
 
   // })
-
-
+  
+  
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////handling the tasks //////////////////////////////////
   ///////////////////////////////////////////////////////////////////////////////
   
-const tasksForm = document.getElementById("handle_tasks_form");
-tasksForm.addEventListener("submit" , (e)=>{
+  const tasksForm = document.getElementById("handle_tasks_form");
+  const task_list = document.getElementById("task_list");
+
+
+
+  tasksForm.addEventListener("submit" , (e)=>{
 
 e.preventDefault();
 const taskPayload = new FormData(tasksForm);
 taskPayload.forEach(item => {
   // console.log(item);
 });
-fetch_All_Tasks();
+//upload the text and then fetch it
 fetchTask(taskPayload);
+fetch_All_Tasks();
 
 })
 
@@ -114,19 +119,27 @@ async function fetchTask(taskPayload){
   const data = await response.text();
   // console.log(data);
   
-  
-  
 }
+// })
 
+  
 async function fetch_All_Tasks() {
   try {
     const response = await fetch(`./php/todolist.php`);
     const data = await response.json();
     console.log(data);
+    data.forEach(task => {
+       item = document.createElement("li")
+      item.classList.add("task");
+      item.innerHTML=task.task +" "+ task.date;
+      task_list.appendChild(item);
+      // console.log(task);
+      // console.log(task.date);
+      
+    });
   } catch (error) {
     console.error(error);
   }
   
 }
-
-// })
+fetch_All_Tasks();
