@@ -5,7 +5,7 @@ session_start();
 // } else {
 //     var_dump($_SESSION);
 // }
-var_dump($_SESSION);
+// var_dump($_SESSION);
 
 require_once("classes/User.php");
 require_once("classes/Task.php");

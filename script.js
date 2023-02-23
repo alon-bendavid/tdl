@@ -76,15 +76,7 @@ if(data == "something went worng"){
 }
 
   }
-  ////////diconnect////////
-  // const disconnectBtn = document.getElementById("disconnectBtn");
-
-  // disconnectBtn.addEventListener("click" , ()=>{
-  //   window.location.reload();
-
-
-  // })
-  
+ 
   
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////handling the tasks //////////////////////////////////
@@ -144,15 +136,15 @@ async function fetchTask(taskPayload){
     delTask.setAttribute("value", task.id);
    
     /////done button
-    doneTask = document.createElement("button");
-    doneTask.innerHTML = "Mark As Done";
-    doneTask.setAttribute("value", task.id);
+    // doneTask = document.createElement("button");
+    // doneTask.innerHTML = "Mark As Done";
+    // doneTask.setAttribute("value", task.id);
     // console.log(delTask);
     // console.log(doneTask);
     
     
     block.appendChild(delTask);
-    block.appendChild(doneTask);
+    // block.appendChild(doneTask);
     
     
     item = document.createElement("li")
@@ -164,11 +156,12 @@ async function fetchTask(taskPayload){
     
     
   });
+  ////////////////////////////////marking the task as done////////////
   const doneBtns = document.querySelectorAll(".block");
   doneBtns.forEach(div=> {
     console.log(div);
     div.addEventListener("click",()=>{
-div.style.display = 'none';
+    div.style. background = 'rgb(60, 179, 235)';
     }) 
   });        
   return data;
