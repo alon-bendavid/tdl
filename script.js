@@ -124,17 +124,17 @@ async function fetchTask(taskPayload){
       //take each json object fetched from the DB and present it in the DOM
       data.forEach(task => {
         
-        const d = new Date();  
-        let time = d.toLocaleTimeString() ;
-      const timeStamp = document.createElement("p");
-      timeStamp.innerHTML = time;
+      //   const d = new Date();  
+      //   let time = d.toLocaleTimeString() ;
+      // const timeStamp = document.createElement("p");
+      // timeStamp.innerHTML = time;
         let  block = document.createElement("div");
         
         block.classList.add("block","div"+task.id);
         // const targetBlock = document.querySelector("."+"div"+task.value)
         // console.log(targetBlock);
         
-      block.innerHTML=task.task ;
+      block.innerHTML=task.task + " " + task.date ;
       let btnsDiv = document.createElement("div");
       btnsDiv.classList.add("btnsDiv");
       
@@ -152,7 +152,7 @@ async function fetchTask(taskPayload){
       // console.log(delTask);
       // console.log(doneTask);
       // block.appendChild('<i class="fa fa-trash-o" aria-hidden="true"></i>');
-      block.appendChild(timeStamp);
+      // block.appendChild(timeStamp);
       block.appendChild(btnsDiv);
     btnsDiv.appendChild(delTask);
     btnsDiv.appendChild(doneTask);
