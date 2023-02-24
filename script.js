@@ -121,15 +121,19 @@ async function fetchTask(taskPayload){
       const data = await response.json();
       console.log(data);
       task_list.innerHTML = "";
-    //take each json object fetched from the DB and present it in the DOM
+      //take each json object fetched from the DB and present it in the DOM
       data.forEach(task => {
-
-
-    let  block = document.createElement("div");
-
-      block.classList.add("block","div"+task.id);
-
-      // console.log(block);
+        
+        const d = new Date();  
+        let time = d.toLocaleTimeString() ;
+      const timeStamp = document.createElement("p");
+      timeStamp.innerHTML = time;
+        let  block = document.createElement("div");
+        
+        block.classList.add("block","div"+task.id);
+        // const targetBlock = document.querySelector("."+"div"+task.value)
+        // console.log(targetBlock);
+        
       block.innerHTML=task.task ;
       let btnsDiv = document.createElement("div");
       btnsDiv.classList.add("btnsDiv");
@@ -145,20 +149,20 @@ async function fetchTask(taskPayload){
       doneTask.innerHTML = "Task Done";
       doneTask.setAttribute("value", task.id);
       doneTask.classList.add("doneBtn");
-
       // console.log(delTask);
       // console.log(doneTask);
       // block.appendChild('<i class="fa fa-trash-o" aria-hidden="true"></i>');
+      block.appendChild(timeStamp);
       block.appendChild(btnsDiv);
     btnsDiv.appendChild(delTask);
     btnsDiv.appendChild(doneTask);
+    task_list.appendChild(block);
     
     
     // item = document.createElement("li")
     // item.classList.add("task");
     
     //insert the elements into the dom
-    task_list.appendChild(block);
     // block.appendChild(item);
     
     

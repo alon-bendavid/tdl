@@ -51,7 +51,7 @@ require_once("header.php");
         </form>
     </div>
     <!-- //////////////////tasks\\\\\\\\\\\\\\\\\\\\\ -->
-    <div>
+    <div class="tasksBox">
         <ul id="task_list">
 
         </ul>
