@@ -199,8 +199,18 @@ async function fetchTask(taskPayload){
       console.log(data);
 if (data == "task deleted"){
   const thisDiv = document.querySelector("."+"div"+delBtn.value);
-  
-  task_list.removeChild(thisDiv);
+  // console.log(task_list.hasOwnProperty(thisDiv));
+  if (task_list.contains(thisDiv)){
+    console.log("its inside tasklist");
+    task_list.removeChild(thisDiv);
+  }
+  if (task_done.contains(thisDiv)){
+    console.log("its inside tasklist");
+    task_done.removeChild(thisDiv);
+  }
+  // task_list.removeChild(thisDiv);  
+
+
 
 }
     });
@@ -247,8 +257,17 @@ if (data == "task deleted"){
   //   console.log(data);
     
   // }
-  
-  
+  // check if an elment exist inside the lsit
+  function ifElmentExist($list , $className){
+
+    const list = document.querySelectorAll($list);
+
+    for (const element of list) {
+      if (element.matches($className)) {
+        console.log(elment +" exist");
+      }
+    }
+  }
   
   fetch_All_Tasks();
-  
+  console.log(task_list);
