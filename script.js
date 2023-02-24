@@ -185,7 +185,7 @@ async function fetchTask(taskPayload){
   delBtns.forEach(delBtn => {
     delBtn.addEventListener("click", async () => {
       const taskId = delBtn.value;
-      console.log(taskId);
+      // console.log(taskId);
   
       const formData = new FormData();
       formData.append('taskId', taskId);
@@ -197,6 +197,12 @@ async function fetchTask(taskPayload){
   
       const data = await response.text();
       console.log(data);
+if (data == "task deleted"){
+  const thisDiv = document.querySelector("."+"div"+delBtn.value);
+  
+  task_list.removeChild(thisDiv);
+
+}
     });
   });
   ////////////////////////////////marking the task as done////////////
