@@ -124,10 +124,7 @@ async function fetchTask(taskPayload){
       //take each json object fetched from the DB and present it in the DOM
       data.forEach(task => {
         
-      //   const d = new Date();  
-      //   let time = d.toLocaleTimeString() ;
-      // const timeStamp = document.createElement("p");
-      // timeStamp.innerHTML = time;
+ 
         let  block = document.createElement("div");
         
         block.classList.add("block","div"+task.id);
@@ -141,7 +138,9 @@ async function fetchTask(taskPayload){
       /////delete button
       delTask = document.createElement("button");
       delTask.innerHTML = "Delete Task";
-      delTask.setAttribute("value", "task"+task.id);
+      delTask.setAttribute("value", task.id);
+      // delTask.setAttribute("value", "task"+task.id);
+
       delTask.classList.add("delBtn");
       
       /////done button
@@ -167,8 +166,8 @@ async function fetchTask(taskPayload){
     
     
   });
-  const doneBtns = document.querySelectorAll("button");
- //this code allow click the done btns and delete the current div from the list and move it to the done list
+  const doneBtns = document.querySelectorAll("."+"doneBtn");
+  //this code allow click the done btns and delete the current div from the list and move it to the done list
   doneBtns.forEach(btn=> {
     btn.addEventListener("click",()=>{
       console.log(btn.value);
@@ -177,49 +176,73 @@ async function fetchTask(taskPayload){
       task_list.removeChild(thisDiv);
       task_done.appendChild(thisDiv);
       thisDiv.style. background = 'rgb(60, 179, 235)';
-
+      
     }) 
+    
   });        
+  const delBtns = document.querySelectorAll(".delBtn");
+
+  delBtns.forEach(delBtn => {
+    delBtn.addEventListener("click", async () => {
+      const taskId = delBtn.value;
+      console.log(taskId);
+  
+      const formData = new FormData();
+      formData.append('taskId', taskId);
+  
+      const response = await fetch('./php/deleteTask.php', {
+        method: 'POST',
+        body: formData
+      });
+  
+      const data = await response.text();
+      console.log(data);
+    });
+  });
   ////////////////////////////////marking the task as done////////////
   return data;
 } catch (error) {
   console.error(error);
 }
 
-  }
-fetch_All_Tasks();
+}
+// delBtn.addEventListener("click",async ()=>{
+  
 
-// function TaskDone(task){
-// const.
 
-// }
-
-// console.log(fetch_All_Tasks());
-
-// const data =  fetch_All_Tasks();
-// const tasksFormBtn = document.getElementById("tasksFormBtn");
-// const tasks = Array()
-// tasksFormBtn.addEventListener("click" , (data)=>{
-
-//   data.forEach(item => {
-//     console.log(item);
-//   });
-
-// })
-
-// showTasks(data);
-// console.log(data);
-
-// async function showTasks(data){
-
-//   data.forEach(task => {
-     
-          
-//     item = document.createElement("li")
-//    item.classList.add("task");
-//    item.innerHTML=task.task +" "+ task.date;
-//    task_list.appendChild(item);
+    
+    //   // toInt = delBtn.match(/\d+/)[0] ;
+    //   console.log( toInt);
+      
+    //   const response =  await fetch('./php/deleteTask.php',{
+        
+    //     method: 'POST',
+    //     body: taskID
+        
+    //   });
+    //   const data = await response.text();
+    //   console.log(data);
+      
+    // });
+    
+  
+  // async function deleteTask(taskID){
+  //   console.log(taskID);
+  //   toInt = taskID.match(/\d+/)[0] ;
+  //   console.log( toInt);
+    
+  //   const response =  await fetch('./php/deleteTask.php',{
+      
+  //     method: 'POST',
+  //     body: taskID
+      
+  //   });
+  //   const data = await response.text();
+  //   console.log(data);
+    
+  // }
   
   
-//   });
-// }
+  
+  fetch_All_Tasks();
+  

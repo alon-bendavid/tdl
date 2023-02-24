@@ -56,11 +56,18 @@ class Task
         echo json_encode($data);
         // return $data;
     }
-    public function delete()
+    public function delete($id)
     {
-        $stmt = $this->conn->prepare("DELETE FROM tasks WHERE login = ?");
-        $stmt->bind_param("s", $this->task);
-        $stmt->execute();
+        $stmt = $this->conn->prepare("DELETE FROM tasks WHERE id = ?");
+        $stmt->bind_param("s", $id);
+        if ($stmt->execute()) {
+
+            echo "task deleted";
+            return true;
+        } else {
+            echo "task delete faild!";
+            return false;
+        }
     }
 }
 
