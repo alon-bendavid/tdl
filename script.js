@@ -135,8 +135,11 @@ async function fetchTask(taskPayload){
         block.classList.add("block","div"+task.id);
         // const targetBlock = document.querySelector("."+"div"+task.value)
         // console.log(targetBlock);
-        
-      block.innerHTML=task.task + " " + task.date ;
+        const taskInfo = document.createElement("p");
+        taskInfo.innerHTML= task.task ; 
+       
+        const taskDate = document.createElement("p");
+        taskDate.innerHTML= " Time created- " + task.date ;
       let btnsDiv = document.createElement("div");
       btnsDiv.classList.add("btnsDiv");
       
@@ -167,6 +170,8 @@ async function fetchTask(taskPayload){
       
       const curDiv = document.querySelector("."+"div" + task.id);
       if (!task_done.contains(curDiv)){
+        block.appendChild(taskInfo)
+      block.appendChild(taskDate)
       block.appendChild(btnsDiv);
       btnsDiv.appendChild(delTask);
       btnsDiv.appendChild(doneTask);
