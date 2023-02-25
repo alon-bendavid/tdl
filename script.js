@@ -152,10 +152,30 @@ async function fetchTask(taskPayload){
       // console.log(doneTask);
       // block.appendChild('<i class="fa fa-trash-o" aria-hidden="true"></i>');
       // block.appendChild(timeStamp);
+    
+    ///////this add every task found in the db////////
+  // const thisDiv = document.querySelector("."+"div"+task.id);
+
+    // console.log(task_list.contains(block));
+    // console.log(thisDiv);
+    //  if(task_list.contains(thisDiv)) {
+      
+      const curDiv = document.querySelector("."+"div" + task.id);
+      if (!task_done.contains(curDiv)){
       block.appendChild(btnsDiv);
-    btnsDiv.appendChild(delTask);
-    btnsDiv.appendChild(doneTask);
-    task_list.appendChild(block);
+      btnsDiv.appendChild(delTask);
+      btnsDiv.appendChild(doneTask);
+      task_list.appendChild(block);
+      console.log(curDiv);
+      }
+  //  }
+  //  if(task_done.contains(thisDiv)) {
+    // block.removeChild(btnsDiv);
+    // btnsDiv.removeChild(delTask);
+    // btnsDiv.removeChild(doneTask);
+    // task_list.removeChild(block);
+   
+  // }
     
     
     // item = document.createElement("li")
@@ -164,8 +184,10 @@ async function fetchTask(taskPayload){
     //insert the elements into the dom
     // block.appendChild(item);
     
-    
+    // ifElmentExist_delete(task_done , curDiv);
   });
+// console.log(task_list);
+
   const doneBtns = document.querySelectorAll("."+"doneBtn");
   //this code allow click the done btns and delete the current div from the list and move it to the done list
   doneBtns.forEach(btn=> {
@@ -200,8 +222,8 @@ async function fetchTask(taskPayload){
 if (data == "task deleted"){
   const thisDiv = document.querySelector("."+"div"+delBtn.value);
    
-  ifElmentExist(task_list , thisDiv);
-  ifElmentExist(task_done , thisDiv);
+  ifElmentExist_delete(task_list , thisDiv);
+  ifElmentExist_delete(task_done , thisDiv);
 
 
 
@@ -251,7 +273,7 @@ if (data == "task deleted"){
     
   // }
   // check if an elment exist inside the lsit
-  function ifElmentExist(perent , child){
+  function ifElmentExist_delete(perent , child){
 
     if (perent.contains(child)){
       console.log("its inside tasklist");
@@ -261,3 +283,4 @@ if (data == "task deleted"){
   
   fetch_All_Tasks();
   console.log(task_list);
+
