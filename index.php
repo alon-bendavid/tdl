@@ -44,7 +44,7 @@ require_once("header.php");
         <form id="handle_tasks_form">
             <?php date_default_timezone_set('Europe/Paris'); ?>
             <textarea name="task" id="taskDescription" cols="30" rows="3" required></textarea>
-            <input id="taskCreatedTime" type="hidden" name="current_date" value="<?php echo date('Y-m-d H:i:s'); ?>" readonly="readonly">
+            <input id="taskCreatedTime" type="hidden" name="current_date" readonly="readonly">
             <button id="tasksFormBtn" class="sign" type="submit" name="subComment">Send</button>
 
 

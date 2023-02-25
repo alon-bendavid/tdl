@@ -87,9 +87,14 @@ if(data == "something went worng"){
 const task_done = document.getElementById("task_done");
 
 
-  tasksForm.addEventListener("submit" , (e)=>{
 
-e.preventDefault();
+tasksForm.addEventListener("submit" , (e)=>{
+  e.preventDefault();
+    const currentDate = new Date();
+    const formattedDate = currentDate.toISOString().slice(0, 19).replace('T', ' ');
+    const taskCreatedTime = document.querySelector('#taskCreatedTime');
+    taskCreatedTime.value = formattedDate;
+
 const taskPayload = new FormData(tasksForm);
 taskPayload.forEach(item => {
   // console.log(item);
