@@ -1,4 +1,16 @@
 // document.addEventListener('DOMContentLoaded', function() {
+  //////////////////////////////////////////////////////////////////////
+  ///////////////////////selction of program////////////////////////////
+  //////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+  
+
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////handling the inscription form////////////////////////////
   ///////////////////////////////////////////////////////////////////////////////
@@ -139,7 +151,7 @@ async function fetchTask(taskPayload){
         taskInfo.innerHTML= task.task ; 
        
         const taskDate = document.createElement("p");
-        taskDate.innerHTML= " Time created- " + task.date ;
+        taskDate.innerHTML= "created At- " + task.date ;
       let btnsDiv = document.createElement("div");
       btnsDiv.classList.add("btnsDiv");
       
@@ -156,17 +168,7 @@ async function fetchTask(taskPayload){
       doneTask.innerHTML = "Task Done";
       doneTask.setAttribute("value", task.id);
       doneTask.classList.add("doneBtn");
-      // console.log(delTask);
-      // console.log(doneTask);
-      // block.appendChild('<i class="fa fa-trash-o" aria-hidden="true"></i>');
-      // block.appendChild(timeStamp);
-    
-    ///////this add every task found in the db////////
-  // const thisDiv = document.querySelector("."+"div"+task.id);
 
-    // console.log(task_list.contains(block));
-    // console.log(thisDiv);
-    //  if(task_list.contains(thisDiv)) {
       
       const curDiv = document.querySelector("."+"div" + task.id);
       if (!task_done.contains(curDiv)){
@@ -178,23 +180,7 @@ async function fetchTask(taskPayload){
       task_list.appendChild(block);
       console.log(curDiv);
       }
-  //  }
-  //  if(task_done.contains(thisDiv)) {
-    // block.removeChild(btnsDiv);
-    // btnsDiv.removeChild(delTask);
-    // btnsDiv.removeChild(doneTask);
-    // task_list.removeChild(block);
-   
-  // }
-    
-    
-    // item = document.createElement("li")
-    // item.classList.add("task");
-    
-    //insert the elements into the dom
-    // block.appendChild(item);
-    
-    // ifElmentExist_delete(task_done , curDiv);
+
   });
 // console.log(task_list);
 

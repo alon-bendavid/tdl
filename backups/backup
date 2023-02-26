@@ -1,0 +1,27 @@
+const loginBtn = document.querySelector(".loginBtn");
+const connection_form = document.querySelector(".connection_form");
+const inscrption = document.querySelector(".inscrption");
+const tasksBox = document.querySelector(".tasksBox");
+const noAcount = document.querySelector(".noAcount");
+connection_form.style.display = "none";
+// tasksBox.style.display = "none";
+
+// connection_form.style.display = 'none';
+loginBtn.addEventListener("click", (e)=>{
+  e.preventDefault();
+  inscrption.style.display = "none";
+
+connection_form.style.display = "flex";
+
+
+})
+
+
+noAcount.addEventListener("click", (e)=>{
+  e.preventDefault();
+  inscrption.style.display = "none";
+
+connection_form.style.display = "flex";
+
+
+})
